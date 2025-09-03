@@ -10,8 +10,14 @@ dotenv.config({
 
 
 connecDB( )
-
-
+.then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`Server is running ar POrt : ${process.env.PORT}`);
+    })
+})
+.catch((error)=>{
+    console.log("Monogdb connection failed!!! ", error)
+})
 
 // first approach
 // import express from "express"
